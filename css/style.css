@@ -15,6 +15,10 @@
     --bs-btn-active-border-color: var(--bs-btn-active-bg);
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .slideshow section {
     display: none;
 }
