@@ -14,3 +14,7 @@
     --bs-btn-active-bg: rgb(20, 180, 50);
     --bs-btn-active-border-color: var(--bs-btn-active-bg);
 }
+
+.slideshow section {
+    display: none;
+}

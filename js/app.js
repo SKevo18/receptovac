@@ -109,7 +109,7 @@ const SABLONY = {
 ODKAZY = {
   '<i class="fas fa-home mr-4"></i> <span>Domov</span>': "index.html",
   '<i class="fas fa-receipt mr-4"></i> <span>Recepty</span>': "recepty.html",
-  '<i class="fas fa-envelope mr-4"></i> <span>Kontakt</span>': "kontakt.html"
+  '<i class="fas fa-envelope mr-4"></i> <span>Kontakt</span>': "kontakt.html",
 };
 
 function nacitatOdkazy() {
@@ -118,12 +118,15 @@ function nacitatOdkazy() {
 
   odkazHtml = (jeHeader, nazov) => {
     if (jeHeader) {
-      let aktualnaURI = window.location.pathname.split("/").pop() || "index.html";
-      return `<li class="nav-item"><a class="nav-link d-flex align-items-center gap-2 ${aktualnaURI == ODKAZY[nazov] ? 'active' : ''}" href="${ODKAZY[nazov]}">${nazov}</a></li>`;
+      let aktualnaURI =
+        window.location.pathname.split("/").pop() || "index.html";
+      return `<li class="nav-item"><a class="nav-link d-flex align-items-center gap-2 ${
+        aktualnaURI == ODKAZY[nazov] ? "active" : ""
+      }" href="${ODKAZY[nazov]}">${nazov}</a></li>`;
     } else {
       return `<li><a class="text-decoration-none d-flex align-items-center gap-2" href="${ODKAZY[nazov]}">${nazov}</a></li>`;
     }
-  }
+  };
 
   for (let nazov in ODKAZY) {
     odkazyHeader.innerHTML += odkazHtml(true, nazov);
@@ -180,3 +183,39 @@ document.addEventListener("DOMContentLoaded", () => {
   napisatAktualnyRok();
   zobrazitCookiesListu(cookies_okno);
 });
+
+// SLIDESHOW
+const SLIDESHOW_ELEMENTY = document.querySelectorAll(".slideshow");
+
+function zmenitSnimku(slideshow_element, index) {
+  let snimky = slideshow_element.getElementsByTagName("section");
+
+  for (let i = 0; i < snimky.length; i++) {
+    snimky[i].style.display = "none";
+  }
+
+  snimky[index].style.display = "block";
+}
+
+for (let i = 0; i < SLIDESHOW_ELEMENTY.length; i++) {
+  let slideshow_element = SLIDESHOW_ELEMENTY[i];
+  let snimky = slideshow_element.getElementsByTagName("section");
+
+  let index = 0;
+  snimky[index].style.display = "block";
+
+  let predosla = slideshow_element.querySelector(".predosla");
+  let nasledujuca = slideshow_element.querySelector(".nasledujuca");
+
+  let _zmenit = () => {
+    index = (index + 1) % snimky.length;
+    zmenitSnimku(slideshow_element, index);
+  };
+
+  predosla.onclick = () => {
+    index = (index - 1 + snimky.length) % snimky.length;
+    zmenitSnimku(slideshow_element, index);
+  };
+  nasledujuca.onclick = _zmenit;
+  setInterval(_zmenit, 5000);
+}

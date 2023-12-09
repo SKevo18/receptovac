@@ -48,23 +48,51 @@
 
     <!-- Začiatok obsahu stránky -->
 
-    <!-- Baner s obrázkom: -->
-    <section class="card rounded-0 text-bg-dark mh-25 mt-5">
-      <img
-        src="img/domov.png"
-        class="card-img"
-        alt="Titulný obrázok rozmanitých švédskych stolov"
-        style="filter: brightness(50%)"
-      />
-      <div
-        class="card-img-overlay d-flex flex-column align-items-center justify-content-center"
-      >
-        <h1 class="card-title display-3">Receptovač</h1>
-        <p><i>Stránka so zoznamom receptov pre slovenské jedlá.</i></p>
+    <!-- Automatický slideshow: -->
+    <div class="slideshow">
+      <section class="card rounded-0 text-bg-dark mh-25 mt-5">
+        <img
+          src="img/domov_1.png"
+          class="card-img"
+          alt="Titulný obrázok rozmanitých švédskych stolov"
+          style="filter: brightness(50%)"
+        />
+        <div
+          class="card-img-overlay d-flex flex-column align-items-center justify-content-center"
+        >
+          <h2 class="card-title display-md-3">Receptovač</h1>
+          <p class="text-center"><small>Stránka so zoznamom receptov pre slovenské jedlá.</small></p>
 
-        <a href="recepty.html" class="btn btn-outline-light"> Zoznam Jedál </a>
+          <a href="recepty.html" class="btn btn-outline-light"> Zoznam Jedál</a>
+        </div>
+      </section>
+
+      <section class="card rounded-0 text-bg-dark mh-25 mt-5">
+        <img
+          src="img/domov_2.png"
+          class="card-img"
+          alt="Titulný obrázok s jedlom"
+          style="filter: brightness(50%)"
+        />
+        <div
+          class="card-img-overlay d-flex flex-column align-items-center justify-content-center"
+        >
+          <h2 class="card-title display-md-3">Chutné recepty každý deň</h1>
+          <p class="text-center"><small>Ako od starej mamy...</small></p>
+
+          <a href="kontakty.html" class="btn btn-outline-light">Povedzte nám Váš recept</a>
+        </div>
+      </section>
+
+      <div class="position-relative">
+        <button class="predosla position-absolute" style="bottom: 20px; left: 5%;">
+          <i class="fas fa-lg fa-chevron-left"></i>
+        </button>
+        <button class="nasledujuca position-absolute" style="bottom: 20px; right: 5%;">
+          <i class="fas fa-lg fa-chevron-right"></i>
+        </button>
       </div>
-    </section>
+    </div>
 
     <!-- Uvítanie: -->
     <div class="container-fluid bg-primary text-bg-dark bg-gradient py-4">
@@ -82,7 +110,7 @@
       <h2 class="my-4">Najnovšie pridané recepty:</h2>
 
       <div class="row">
-        <div class="col-lg">
+        <div class="col-lg d-flex align-items-stretch">
           <div class="card mb-3">
             <div class="row g-0">
               <div class="col-4 d-flex">
@@ -119,7 +147,7 @@
           </div>
         </div>
 
-        <div class="col-lg h-100">
+        <div class="col-lg d-flex align-items-stretch">
           <div class="card mb-3">
             <div class="row g-0">
               <div class="col-4 d-flex">
